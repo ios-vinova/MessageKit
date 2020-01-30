@@ -60,6 +60,10 @@ open class TextMessageSizeCalculator: MessageSizeCalculator {
 
         messageContainerSize = labelSize(for: attributedText, considering: maxWidth)
 
+        if messageContainerSize.width < 50 {
+            messageContainerSize.width = 50
+        }
+        
         let messageInsets = messageLabelInsets(for: message)
         messageContainerSize.width += messageInsets.horizontal
         messageContainerSize.height += messageInsets.vertical
